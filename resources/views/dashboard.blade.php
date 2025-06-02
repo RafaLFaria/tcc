@@ -17,17 +17,64 @@
     <!-- CSS Files -->
     <link href="{{ asset('tema/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('tema/assets/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
+    <style>
+        .color1 {
+            #4d433d
+        }
+
+        ;
+
+        .color2 {
+            #525c5a
+        }
+
+        ;
+
+        .color3 {
+            #56877d
+        }
+
+        ;
+
+        .color4 {
+            #8ccc81
+        }
+
+        ;
+
+        .color5 {
+            #bade57
+        }
+
+        /* Cor do ícone na aba ativa */
+        .nav li.active i.nc-icon {
+            color: #56877d !important;
+            /* Use a cor desejada (color3 neste exemplo) */
+        }
+
+        /* Mantém a cor original do texto */
+        .nav li.active p {
+            color: inherit !important;
+            /* Mantém a cor padrão do texto */
+        }
+
+        /* Corrige o hover para não afetar o ícone */
+        .nav li:not(.active) a:hover i.nc-icon {
+            color: inherit !important;
+        }
+
+        ;
+    </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" style="">
     <div class="wrapper">
         <!-- Sidebar -->
-        <div class="sidebar" data-color="white" data-active-color="danger">
+        <div class="sidebar" data-color="white">
             <div class="logo">
                 <a href="{{ url('dashboard') }}" class="simple-text logo-normal">
-                    <img src="{{ asset('tema/assets/img/logoPad.png') }}" alt="Logo"
-                        style="width: 55px; height: 45px;">
-                    Quitandas da Lê
+                    <img src="{{ asset('tema/assets/img/logoPad.png') }}" alt="Logo" style="width: 55px; height: 45px;">
+                    Rancho Fundo
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -69,6 +116,7 @@
                                 <p>Cadastrar Funcionário</p>
                             </a>
                         </li>
+
                     @endif
                     <li class="{{ Request::is('compra') ? 'active' : '' }}">
                         <a href="{{ url('compra') }}">
@@ -124,7 +172,7 @@
                     <div class="row">
                         <div class="credits ml-auto">
                             <span class="copyright">
-                                © {{ date('Y') }}, made with <i class="fa fa-heart heart"></i> by Eduarda Faria
+                                © {{ date('Y') }}, made by Rafaela Faria
                             </span>
                         </div>
                     </div>
@@ -138,12 +186,12 @@
     <script src="{{ asset('tema/assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('tema/assets/js/paper-dashboard.min.js?v=2.0.1') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navbarToggle = document.querySelector('.navbar-toggle');
             const body = document.body;
 
             if (navbarToggle) {
-                navbarToggle.addEventListener('click', function() {
+                navbarToggle.addEventListener('click', function () {
                     if (body.classList.contains('nav-open')) {
                         body.classList.remove('nav-open');
                         document.getElementById('bodyClick')?.remove();
@@ -151,7 +199,7 @@
                         body.classList.add('nav-open');
                         const div = document.createElement('div');
                         div.id = 'bodyClick';
-                        div.onclick = function() {
+                        div.onclick = function () {
                             body.classList.remove('nav-open');
                             div.remove();
                         };

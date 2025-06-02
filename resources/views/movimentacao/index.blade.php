@@ -10,8 +10,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="search">Nome do Produto</label>
-                        <input type="text" name="search" id="search" class="form-control"
-                            value="{{ request('search') }}">
+                        <input type="text" name="search" id="search" class="form-control" value="{{ request('search') }}">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="tipo">Tipo de Movimentação</label>
@@ -43,11 +42,10 @@
                             </option>
                             <option value="nome_desc" {{ request('ordenar_por') == 'nome_desc' ? 'selected' : '' }}>Nome
                                 (Z-A)</option>
-                            <option value="quantidade_asc"
-                                {{ request('ordenar_por') == 'quantidade_asc' ? 'selected' : '' }}>Quantidade (Menor para
+                            <option value="quantidade_asc" {{ request('ordenar_por') == 'quantidade_asc' ? 'selected' : '' }}>
+                                Quantidade (Menor para
                                 Maior)</option>
-                            <option value="quantidade_desc"
-                                {{ request('ordenar_por') == 'quantidade_desc' ? 'selected' : '' }}>Quantidade (Maior para
+                            <option value="quantidade_desc" {{ request('ordenar_por') == 'quantidade_desc' ? 'selected' : '' }}>Quantidade (Maior para
                                 Menor)</option>
                         </select>
                     </div>
@@ -102,18 +100,18 @@
                                             // Define um valor padrão ou trata o caso de quantidade igual a 0
                                             $valorUnitario = $movimentacao->valor;
                                         }
-                                
+
                                         // Acumula o valor total, considerando a movimentação
-                                        $totalValor += $movimentacao->tipo == 2 
-                                            ? -($valorUnitario * $movimentacao->quantidade) 
+                                        $totalValor += $movimentacao->tipo == 2
+                                            ? -($valorUnitario * $movimentacao->quantidade)
                                             : ($valorUnitario * $movimentacao->quantidade);
                                     @endphp
                                     {{ number_format($valorUnitario, 2, ',', '.') }}
                                 </td>
-                                                              
+
                                 <td>
                                     {{ number_format($valorUnitario * $quantidade, 2, ',', '.') }}
-                                </td>                                
+                                </td>
                                 <td>{{ $movimentacao->data ? \Carbon\Carbon::parse($movimentacao->data)->format('H:i d/m/Y') : 'Data inválida' }}
                                 </td>
                             </tr>
@@ -121,7 +119,8 @@
 
                         <tr>
                             <td colspan="2" class="text-right"><strong>Total</strong></td>
-                            <td><b style="color: rgb(40, 158, 255)">{{ number_format($totalQuantidade, 2, ',', '.') }}</b></td>
+                            <td><b style="color: rgb(40, 158, 255)">{{ number_format($totalQuantidade, 2, ',', '.') }}</b>
+                            </td>
                             <td></td>
                             <td></td>
                             <td><b style="color: rgb(40, 158, 255)">{{ number_format($totalValor, 2, ',', '.') }}</b></td>
