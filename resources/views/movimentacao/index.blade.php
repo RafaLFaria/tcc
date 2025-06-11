@@ -50,7 +50,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Filtrar</button>
+                <button type="submit" class="btn btn-primary bi bi-funnel">Filtrar</button>
                 <a href="{{ route('movimentacao.index') }}" class="btn btn-secondary">Limpar Filtros</a>
             </form>
             <div class="table-responsive">

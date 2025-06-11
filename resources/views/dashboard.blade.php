@@ -17,6 +17,9 @@
     <!-- CSS Files -->
     <link href="{{ asset('tema/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('tema/assets/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
     <style>
         .color1 {
             #4d433d
@@ -48,7 +51,12 @@
 
         /* Cor do ícone na aba ativa */
         .nav li.active i.nc-icon {
-            color: #56877d !important;
+            color: rgb(34, 167, 67) !important;
+            /* Use a cor desejada (color3 neste exemplo) */
+        }
+
+        .nav li.active i.bi {
+            color: rgb(34, 167, 67) !important;
             /* Use a cor desejada (color3 neste exemplo) */
         }
 
@@ -87,7 +95,7 @@
                     </li>
                     <li class="{{ Request::is('perfil') ? 'active' : '' }}">
                         <a href="{{ url('perfil') }}">
-                            <i class="nc-icon nc-single-02"></i>
+                            <i class="bi bi-person"></i>
                             <p>Perfil Usuário</p>
                         </a>
                     </li>
@@ -99,7 +107,7 @@
                     </li>
                     <li class="{{ Request::is('unidade') ? 'active' : '' }}">
                         <a href="{{ url('unidade') }}">
-                            <i class="nc-icon nc-box"></i>
+                            <i class="bi bi-journal-text"></i>
                             <p>Cadastrar Unidades</p>
                         </a>
                     </li>
@@ -112,7 +120,7 @@
                     @if (Auth::user() && Auth::user()->is_admin)
                         <li class="{{ Request::is('funcionarios') ? 'active' : '' }}">
                             <a href="{{ url('funcionarios') }}">
-                                <i class="nc-icon nc-delivery-fast"></i>
+                                <i class="bi bi-person-add"></i>
                                 <p>Cadastrar Funcionário</p>
                             </a>
                         </li>
@@ -120,7 +128,7 @@
                     @endif
                     <li class="{{ Request::is('compra') ? 'active' : '' }}">
                         <a href="{{ url('compra') }}">
-                            <i class="nc-icon nc-cart-simple"></i>
+                            <i class="bi bi-basket2"></i>
                             <p>Lançar Compra</p>
                         </a>
                     </li>
@@ -132,7 +140,7 @@
                     </li>
                     <li class="{{ Request::is('estoque') ? 'active' : '' }}">
                         <a href="{{ url('estoque') }}">
-                            <i class="nc-icon nc-align-center"></i>
+                            <i class="bi bi-clipboard-data"></i>
                             <p>Estoque</p>
                         </a>
                     </li>
